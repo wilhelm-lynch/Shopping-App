@@ -1,1 +1,3 @@
-console.log("MY FIRST FILE")
+import {Application} from "./config"
+
+export default new Application();
