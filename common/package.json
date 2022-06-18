@@ -3,16 +3,21 @@
   "version": "1.0.1",
   "description": "",
   "main": ".build/index.js",
+  "types": "./build/index.ts",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
-    "clean": "rimraf ./buid",
+    "clean": "del ./buid/*",
     "build": "npm run clean && tsc",
-    "start": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
+    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "del-cli": "^4.0.1",
     "express": "^4.18.1"
   }
 }
