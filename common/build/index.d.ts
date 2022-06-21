@@ -1,2 +1,3 @@
 import { currentUser } from "./middlewares";
-export { currentUser };
+import { logger } from "./logger";
+export { currentUser, logger };
