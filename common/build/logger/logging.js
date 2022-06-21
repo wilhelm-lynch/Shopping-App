@@ -31,10 +31,9 @@ exports.logger = logger;
 if (process.env.NODE_ENV === "development") {
     exports.logger = logger = winston_1.default.createLogger({
         level: "verbose",
+        format: winston_1.format.combine(winston_1.format.label({ label: "[LOGGER]" }), winston_1.format.timestamp({ format: "DD-MM-YYYY HH:MM:ss" }), winston_1.format.printf(info => `${info.label} ${info.timestamp} ${info.level} : ${info.message}`)),
         transports: [
-            new winston_1.default.transports.Console({
-                format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.combine(winston_1.format.colorize({ all: true }), winston_1.format.label({ label: "[LOGGER]" }), winston_1.format.timestamp({ format: "DD-MM-YYYY HH:MM:ss" }), winston_1.format.printf(info => `${info.label} ${info.timestamp} ${info.level} : ${info.message}`)))
-            })
+            new winston_1.transports.Console()
         ]
     });
 }
