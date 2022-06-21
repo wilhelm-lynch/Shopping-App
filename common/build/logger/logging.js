@@ -25,13 +25,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
 const winston_1 = __importStar(require("winston"));
+const colorizer = winston_1.format.colorize();
 let logger;
 exports.logger = logger;
 //Development Logger
 if (process.env.NODE_ENV === "development") {
     exports.logger = logger = winston_1.default.createLogger({
         level: "verbose",
-        format: winston_1.format.combine(winston_1.format.label({ label: "[LOGGER]" }), winston_1.format.timestamp({ format: "DD-MM-YYYY HH:MM:ss" }), winston_1.format.printf(info => `${info.label} ${info.timestamp} ${info.level} : ${info.message}`)),
+        format: winston_1.format.combine(winston_1.format.label({ label: "[LOGGER]" }), winston_1.format.timestamp({ format: "DD-MM-YYYY HH:MM:ss" }), winston_1.format.printf(info => colorizer.colorize(info.level, `${info.label} ${info.timestamp} ${info.level} : ${info.message}`))),
         transports: [
             new winston_1.transports.Console()
         ]

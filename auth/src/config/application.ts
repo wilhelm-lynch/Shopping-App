@@ -1,3 +1,4 @@
+import {logger} from "@density-shopping/common"
 import ExpressConfig from "./express";
 
 export default class Application{
@@ -7,6 +8,6 @@ export default class Application{
     constructor(){
         this.express = new ExpressConfig();
         const port = 3000;
-        this.express.app.listen(port, () => console.log(`Server listening @ http://localhost:${port}`))
+        this.express.app.listen(port, () => logger.info(`Server listening at http://localhost:${port}`))
     }
 }
