@@ -16,8 +16,8 @@ export default class ExpressConfig{
         this.app.use(helmet())
         this.app.use(cookieParser())
 
-        this.app.get("/test", (req, res) => {
-            res.status(200).json({message: "this is a test"});
+        this.app.get("/api/users/currentuser", (req, res) => {
+            res.status(200).json({message: "Hello there!"});
         })
 
         this.app.all("*",  async (req: Request, res: Response) => {
