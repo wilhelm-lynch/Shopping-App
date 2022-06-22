@@ -1,3 +1,4 @@
 import currentUser from "./current-user";
+import {errorHandlerMiddleware} from "./error-handler"
 
-export {currentUser}
+export {currentUser, errorHandlerMiddleware}
