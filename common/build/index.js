@@ -1,7 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logger = exports.currentUser = void 0;
+exports.UnauthorizedError = exports.UnauthenticatedError = exports.NotFoundError = exports.logger = exports.errorHandlerMiddleware = exports.currentUser = exports.CustomAPIError = exports.BadRequestError = void 0;
 const middlewares_1 = require("./middlewares");
 Object.defineProperty(exports, "currentUser", { enumerable: true, get: function () { return middlewares_1.currentUser; } });
+Object.defineProperty(exports, "errorHandlerMiddleware", { enumerable: true, get: function () { return middlewares_1.errorHandlerMiddleware; } });
 const logger_1 = require("./logger");
 Object.defineProperty(exports, "logger", { enumerable: true, get: function () { return logger_1.logger; } });
+const errors_1 = require("./errors");
+Object.defineProperty(exports, "BadRequestError", { enumerable: true, get: function () { return errors_1.BadRequestError; } });
+Object.defineProperty(exports, "CustomAPIError", { enumerable: true, get: function () { return errors_1.CustomAPIError; } });
+Object.defineProperty(exports, "NotFoundError", { enumerable: true, get: function () { return errors_1.NotFoundError; } });
+Object.defineProperty(exports, "UnauthenticatedError", { enumerable: true, get: function () { return errors_1.UnauthenticatedError; } });
+Object.defineProperty(exports, "UnauthorizedError", { enumerable: true, get: function () { return errors_1.UnauthorizedError; } });
