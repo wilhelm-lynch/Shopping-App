@@ -1,8 +1,12 @@
-import express, {Express, Request, Response} from "express";
 import "express-async-errors"
+import express, {Express, Request, Response} from "express";
 import cookieParser from "cookie-parser"
 import helmet from "helmet"
 import cors from "cors"
+process.env["NODE_CONFIG_DIR"] = __dirname;
+import config from "config"
+import {routes} from "../routes"
+
 
 export default class ExpressConfig{
     app: Express;
@@ -15,10 +19,7 @@ export default class ExpressConfig{
         this.app.use(cors())
         this.app.use(helmet())
         this.app.use(cookieParser())
-
-        this.app.get("/api/users/currentuser", (req, res) => {
-            res.status(200).json({message: "Hello there!"});
-        })
+        this.app.use(config.get("URI"), routes);
 
         this.app.all("*",  async (req: Request, res: Response) => {
             throw new Error("Route not found");
