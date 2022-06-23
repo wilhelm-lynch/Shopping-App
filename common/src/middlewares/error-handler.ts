@@ -1,13 +1,9 @@
 import {StatusCodes} from "http-status-codes"
-import {Request, Response} from "express"
+import {Request, Response, NextFunction} from "express"
+import {ICustomAPIError} from "../errors"
 
-interface CustomError{
-    statusCode: number;
-    message: string
-}
-
-export const errorHandlerMiddleware = (err: CustomError , req: Request, res: Response) => {
-    let customError: CustomError = {
+export const errorHandlerMiddleware = (err: ICustomAPIError , req: Request, res: Response, next: NextFunction) => {
+    let customError: ICustomAPIError = {
         statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
         message: err.message || "Something went wrong, try again later" 
     }
