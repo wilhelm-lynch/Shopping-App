@@ -1,4 +1,4 @@
-import {logger} from "@density-shopping/common"
+import {logger, errorHandlerMiddleware} from "@density-shopping/common"
 import ExpressConfig from "./express";
 
 export default class Application{
