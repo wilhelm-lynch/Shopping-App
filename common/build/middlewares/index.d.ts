@@ -1,3 +1,4 @@
 import currentUser from "./current-user";
 import { errorHandlerMiddleware } from "./error-handler";
-export { currentUser, errorHandlerMiddleware };
+import { routesNotFound } from "./routes-not-found";
+export { currentUser, errorHandlerMiddleware, routesNotFound };
