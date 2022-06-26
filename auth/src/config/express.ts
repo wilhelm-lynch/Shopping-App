@@ -1,5 +1,5 @@
 import "express-async-errors"
-import {errorHandlerMiddleware, NotFoundError} from "@density-shopping/common"
+import {errorHandlerMiddleware, NotFoundError, routesNotFound} from "@density-shopping/common"
 import express, {Express, Request, Response} from "express";
 import cookieParser from "cookie-parser"
 import helmet from "helmet"
@@ -21,10 +21,7 @@ export default class ExpressConfig{
         this.app.use(helmet())
         this.app.use(cookieParser())
         this.app.use(config.get("URI"), routes);
-        
-        this.app.all("*",  async (req: Request, res: Response) => {
-                throw new NotFoundError("Route not found");
-            })
+        this.app.use(routesNotFound);
             
         this.app.use(errorHandlerMiddleware)
     }
