@@ -4,7 +4,7 @@ import { ObjectSchema } from "joi";
 interface ISchema {
     object: ObjectSchema;
 }
-export default class SchemaValidator {
+export declare class SchemaValidator {
     private _useJoiError;
     private _supportedMethod;
     private _validationOptions;
