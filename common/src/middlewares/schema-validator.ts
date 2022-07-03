@@ -77,7 +77,7 @@ interface ILanguageMessages extends LanguageMessages{
     "any.unknown": string;
 }
 
-export default class SchemaValidator{
+export class SchemaValidator{
     private _useJoiError: boolean
     private _supportedMethod: Array<string>
     private _validationOptions : IValidationOptions;
