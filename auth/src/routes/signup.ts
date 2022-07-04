@@ -1,9 +1,9 @@
-import express, {Request, Response} from "express";
+import express from "express";
+import {register} from "../controller"
 
 const router = express.Router();
 
-router.post("/signup", (req: Request, res: Response) => {
-    res.send({message: "Hello signUP!"})
-} )
+// Add validation controller
+router.post("/signup", register )
 
 export {router as signupRouter}
