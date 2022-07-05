@@ -8,5 +8,5 @@ export const errorHandlerMiddleware = (err: ICustomAPIError , req: Request, res:
         message: err.message || "Something went wrong, try again later" 
     }
 
-    return res.status(customError.statusCode).json({message: customError.message})
+    return res.status(customError.statusCode).json({data: [{status: "failed", message: customError.message, path: "error"}]})
 }
