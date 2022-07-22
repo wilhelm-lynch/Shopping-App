@@ -7,6 +7,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         statusCode: err.statusCode || http_status_codes_1.StatusCodes.INTERNAL_SERVER_ERROR,
         message: err.message || "Something went wrong, try again later"
     };
-    return res.status(customError.statusCode).json({ message: customError.message });
+    return res.status(customError.statusCode).json({ data: [{ status: "failed", message: customError.message, path: "error" }] });
 };
 exports.errorHandlerMiddleware = errorHandlerMiddleware;

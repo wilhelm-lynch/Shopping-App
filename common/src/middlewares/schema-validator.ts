@@ -108,7 +108,7 @@ export default class SchemaValidator{
                 const _joiError = error.details.map(({message, path}) => ({
                     status: "failed",
                     message: message.replace(/['"]/g, ""),
-                    path: path[0],
+                    field: path[0],
                 }));
 
                 const _CustomError = {

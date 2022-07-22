@@ -93,8 +93,8 @@ class SchemaValidator {
                 "any.invalid": "{{#label}} contains an invalid value",
                 "any.only": '{{#label}} must be {if(#valids.length == 1, "", "one of ")}{{#valids}}',
                 "any.ref": "{{#label}} {{#arg}} references {{:#ref}} which {{#reason}}",
-                "any.required": "{{#label}} is required",
-                "any.unknown": "{{#label}} is not allowed",
+                "any.required": "{{#label}} is vereist",
+                "any.unknown": "{{#label}} is niet toegestaan",
             };
             return messages;
         };

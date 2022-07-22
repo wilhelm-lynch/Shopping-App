@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@density-shopping/common": "^1.0.18",
+    "@density-shopping/common": "^1.0.19",
     "@types/config": "^0.0.41",
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.12",
